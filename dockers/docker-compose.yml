@@ -1,30 +1,35 @@
 version: '3'
 
 services:
+  # Interface de adminstração do MongoDB
   mongo-express:
     image: mongo-express
     ports:
+      # porta de acesso 8081
       - 8081:8081
     environment:
-      ME_CONFIG_BASICAUTH_USERNAME: renatogroffe
-      ME_CONFIG_BASICAUTH_PASSWORD: MongoExpress2019!
+      ME_CONFIG_BASICAUTH_USERNAME: intelivix
+      ME_CONFIG_BASICAUTH_PASSWORD: Testeintelivix2020!
       ME_CONFIG_MONGODB_PORT: 27017
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: MongoDB2019!
+      ME_CONFIG_MONGODB_ADMINPASSWORD: Testeintelivix2020!
     links:
       - mongo
     networks:
       - mongo-compose-network
-
+    depends_on:
+      - mongo
+  # Docker Compose
   mongo:
     image: mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: MongoDB2019!
+      MONGO_INITDB_ROOT_PASSWORD: Testeintelivix2020!
     ports:
+      # porta de acesso 27017
       - "27017:27017"
     volumes:
-      - /home/renatogroffe/Desenvolvimento/Docker/Volumes/MongoDB:/data/db
+      - ./Volumes/MongoDB:/data/db
     networks:
       - mongo-compose-network
 

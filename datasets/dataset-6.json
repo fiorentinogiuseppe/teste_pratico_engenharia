@@ -1,0 +1,20 @@
+{
+    "id": "263c9996-5f74-6412-e01f-cbecdca71c5e",
+    "npu": "1517345-36.2016.8.01.0560",
+    "estado": "PB",
+    "spider": "projudi-rn",
+    "juiz": "Saulo Braga Santana Falcão",
+    "data_distribuicao": "1990-09-06T14:08:01Z",
+    "data_captura": "2017-12-27T17:04:29Z",
+    "andamentos": [
+        {
+            "texto": "denmark quest strip upgrade rocky ... opportunity",
+            "data": "1993-12-02T15:40:49Z",
+            "etiquetas": [
+                "Yellow",
+                "Pink",
+                "Magenta"
+            ]
+        }
+    ]
+}
