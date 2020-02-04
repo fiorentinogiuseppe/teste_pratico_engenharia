@@ -39,7 +39,7 @@ As bases só variam em tamanho e seus itens (processos) seguem o seguinte format
 
 ### O desafio consiste nas seguintes etapas:
 
-1. [ ] Carregar uma das bases de dados listadas acima em um banco de dados MongoDB.
+1. [X] Carregar uma das bases de dados listadas acima em um banco de dados MongoDB.
 
 2. [ ] Responder as seguintes consultas:
   * [ ] Contagem total dos processos.
