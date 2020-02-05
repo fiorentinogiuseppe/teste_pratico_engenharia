@@ -50,9 +50,9 @@ As bases só variam em tamanho e seus itens (processos) seguem o seguinte format
 
 3. Lendo os dados a partir do MongoDB transformá-los e carregar o resultado
 em uma tabela do PostgreSQL.
-  *  Gerar 2 modelos (Processo e Andamento) usando SQLAlchemy. Inferir os campos através do esquema apresentado acima.
+  * Gerar 2 modelos (Processo e Andamento) usando SQLAlchemy. Inferir os campos através do esquema apresentado acima.
   O candidato tem liberdade para criar novos campos para lhe ajudar nas tarefas.
-  *  Realizar as transformações abaixo:
+  * Realizar as transformações abaixo:
     1. [ ] Deixar somente o primeiro e último nome dos Juízes.
     2. [ ] Remover todos os andamentos cuja data for anterior a data de distribuição.
     3. [ ] Modificar os npus que não possuam um ano entre 1980 e 2018 para o ano 2000. 
