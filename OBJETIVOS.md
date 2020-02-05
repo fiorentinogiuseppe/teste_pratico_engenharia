@@ -60,7 +60,7 @@ em uma tabela do PostgreSQL.
     4. [ ] Remover todas as palavras que comecem com a letra 'r' dos textos dos andamentos.
     5. [ ] Adicionar um campo inteiro no modelo de Processo com a quantidade de andamentos (somente os válidos que já foram transformados).
     6. [ ] Adicionar um campo booleano no modelo de Andamento que verifique se a palavra cinema esta no texto.
-  *  Responder as seguintes consultas pós-processamento:
+  * Responder as seguintes consultas pós-processamento:
     1. [ ] Qual o total de processos? Qual o total de andamentos?
     2. [ ] Qual processo possui mais andamentos?
     3. [ ] Quais andamentos possuem mais caracteres? Quais são os seus processos?
@@ -68,7 +68,7 @@ em uma tabela do PostgreSQL.
     5. [ ] Qual processo possui o maior número formado pelos seus 6 primeiros números do seu npu?
     6. [ ] Qual mês/ano foram capturados mais processos para cada "spider"?
 
-4. [ ] Ao final exportar as tabelas do banco de dados PostgreSQL para um arquivo chamado `report.csv` (delimitador de texto **'** " **'**, separador **'** | **'**). 
+4.  Ao final exportar as tabelas do banco de dados PostgreSQL para um arquivo chamado `report.csv` (delimitador de texto **'** " **'**, separador **'** | **'**). 
 
 ###  Sobre a entrega:
 
