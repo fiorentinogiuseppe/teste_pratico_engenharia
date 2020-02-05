@@ -68,7 +68,7 @@ em uma tabela do PostgreSQL.
     5. [ ] Qual processo possui o maior número formado pelos seus 6 primeiros números do seu npu?
     6. [ ] Qual mês/ano foram capturados mais processos para cada "spider"?
 
-4. [ ] Ao final exportar as tabelas do banco de dados PostgreSQL para um arquivo chamado `report.csv` (delimitador de texto **'** " **'**, separador **'** | **'**). 
+4.  Ao final exportar as tabelas do banco de dados PostgreSQL para um arquivo chamado `report.csv` (delimitador de texto **'** " **'**, separador **'** | **'**). 
 
 ###  Sobre a entrega:
 
