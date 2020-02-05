@@ -46,7 +46,7 @@ As bases só variam em tamanho e seus itens (processos) seguem o seguinte format
   * [X] Contagem total dos andamentos.
   * [X] Contagem de processos por estado.
   * [X] Contagem de juízes que começam com 'S'.
-  * [ ] Contagem de etiquetas mais comuns.
+  * [X] Contagem de etiquetas mais comuns.
 
 3. Lendo os dados a partir do MongoDB transformá-los e carregar o resultado
 em uma tabela do PostgreSQL.
