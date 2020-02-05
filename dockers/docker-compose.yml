@@ -33,6 +33,30 @@ services:
     networks:
       - mongo-compose-network
 
+  postgresql:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "Testeintelivix2020!"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/renatogroffe/Desenvolvimento/Docker-Compose/PostgreSQL:/var/lib/postgresql/data
+    networks:
+      - postgres-compose-network
+
+  pgadmin:
+      image: dpage/pgadmin4
+      environment:
+        PGADMIN_DEFAULT_EMAIL: "fiorentinogiuseppebcc@gmail.com"
+        PGADMIN_DEFAULT_PASSWORD: "Testeintelivix2020!"
+      ports:
+        - "16543:80"
+      depends_on:
+        - postgresql
+      networks:
+        - postgres-compose-network
 networks:
     mongo-compose-network:
+      driver: bridge
+    postgres-compose-network:
       driver: bridge
