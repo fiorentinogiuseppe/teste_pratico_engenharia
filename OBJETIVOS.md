@@ -41,14 +41,14 @@ As bases só variam em tamanho e seus itens (processos) seguem o seguinte format
 
 1. [X] Carregar uma das bases de dados listadas acima em um banco de dados MongoDB.
 
-2. [ ] Responder as seguintes consultas:
+2. Responder as seguintes consultas:
   * [ ] Contagem total dos processos.
   * [ ] Contagem total dos andamentos.
   * [ ] Contagem de processos por estado.
   * [ ] Contagem de juízes que começam com 'S'.
   * [ ] Contagem de etiquetas mais comuns.
 
-3. [ ] Lendo os dados a partir do MongoDB transformá-los e carregar o resultado
+3. Lendo os dados a partir do MongoDB transformá-los e carregar o resultado
 em uma tabela do PostgreSQL.
   * [ ] Gerar 2 modelos (Processo e Andamento) usando SQLAlchemy. Inferir os campos através do esquema apresentado acima.
   O candidato tem liberdade para criar novos campos para lhe ajudar nas tarefas.
