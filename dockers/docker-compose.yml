@@ -40,7 +40,7 @@ services:
     ports:
       - "15432:5432"
     volumes:
-      - /home/renatogroffe/Desenvolvimento/Docker-Compose/PostgreSQL:/var/lib/postgresql/data
+      - ./Volumes/MongoDB:PostgreSQL:/var/lib/postgresql/data
     networks:
       - postgres-compose-network
 
