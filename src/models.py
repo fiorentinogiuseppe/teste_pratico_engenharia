@@ -1,17 +1,12 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Date, ForeignKey, Boolean, Table
+from sqlalchemy import Column, Integer, String, Date, ForeignKey, Boolean, Table, ARRAY
 from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
-association_table = Table('association', Base.metadata,
-    Column('andamentos_id', Integer, ForeignKey('andamentos.id')),
-    Column('etiquetas_id', Integer, ForeignKey('etiquetas.id'))
-)
-
 class Processos(Base):
     __tablename__ = 'processos'
-    id = Column(Integer, primary_key=True)
+    id = Column(String, primary_key=True, autoincrement=False)
     npu = Column(String)
     estado = Column(String)
     spider = Column(String)
@@ -27,12 +22,12 @@ class Andamentos(Base):
     texto = Column(String)
     bool_cinema = Column(Boolean)
     data = Column(Date)
-    processos_id = Column(Integer, ForeignKey('etiquetas.id'))
-    children = relationship("Etiquetas",
-                            secondary=association_table)
+    processos_id = Column(String, ForeignKey('processos.id'))
+    etiquetas_id = Column(Integer, ForeignKey('etiquetas.id'))
 
 
 class Etiquetas(Base):
     __tablename__ = 'etiquetas'
     id = Column(Integer, primary_key=True)
-    cor = Column(String)
+    cor = Column(ARRAY(String))
+    children = relationship("Andamentos")
