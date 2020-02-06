@@ -53,13 +53,13 @@ em uma tabela do PostgreSQL.
   * Gerar 2 modelos (Processo e Andamento) usando SQLAlchemy. Inferir os campos através do esquema apresentado acima.
   O candidato tem liberdade para criar novos campos para lhe ajudar nas tarefas.
   * Realizar as transformações abaixo:
-    1. [ ] Deixar somente o primeiro e último nome dos Juízes.
-    2. [ ] Remover todos os andamentos cuja data for anterior a data de distribuição.
-    3. [ ] Modificar os npus que não possuam um ano entre 1980 e 2018 para o ano 2000. 
+    1. [X] Deixar somente o primeiro e último nome dos Juízes.
+    2. [X] Remover todos os andamentos cuja data for anterior a data de distribuição.
+    3. [X] Modificar os npus que não possuam um ano entre 1980 e 2018 para o ano 2000. 
     <br/>(Ex: 1517345-36.**6416**.8.01.0560 vira 1517345-36.**2000**.8.01.0560)
-    4. [ ] Remover todas as palavras que comecem com a letra 'r' dos textos dos andamentos.
-    5. [ ] Adicionar um campo inteiro no modelo de Processo com a quantidade de andamentos (somente os válidos que já foram transformados).
-    6. [ ] Adicionar um campo booleano no modelo de Andamento que verifique se a palavra cinema esta no texto.
+    4. [X] Remover todas as palavras que comecem com a letra 'r' dos textos dos andamentos.
+    5. [X] Adicionar um campo inteiro no modelo de Processo com a quantidade de andamentos (somente os válidos que já foram transformados).
+    6. [X] Adicionar um campo booleano no modelo de Andamento que verifique se a palavra cinema esta no texto.
   * Responder as seguintes consultas pós-processamento:
     1. [ ] Qual o total de processos? Qual o total de andamentos?
     2. [ ] Qual processo possui mais andamentos?
