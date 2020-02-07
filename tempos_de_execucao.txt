@@ -27,3 +27,17 @@ user    2m33,443s
 sys     0m17,256s
 
 ----------
+
+q_33.py
+
+real    0m0,325s
+user    0m0,180s
+sys     0m0,030s
+
+----------
+
+q_4.py
+
+real    0m1,500s
+user    0m0,998s
+sys     0m0,083s
