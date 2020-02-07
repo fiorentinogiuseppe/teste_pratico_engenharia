@@ -102,7 +102,7 @@ Assim teremos os seguintes ambiente *em pé*:
 Após todo o ambiente configurado e entendido a organização do repositório podemos iniciar as
 questões
 
-![](/tmp/incio_da_caminhada.png){ width="800" height="600" style="display: block; margin: 0 auto" }
+![](/tmp/incio_da_caminhada.png)
 
 ### Questão 1
 * :question: <mark>Carregar uma das bases de dados listadas acima em um banco de dados MongoDB.</mark>
@@ -145,7 +145,7 @@ transformá-los e carregar o resultado em uma tabela do PostgreSQL, que como pr�
 para isso precisamos destrinchar o documento tentando mapear para o modelo ER ~~quase uma engenharia reversa 
 de base de dados~~. Com isso em mente a tentativa do mapeamento gerou a imagem a seguir:
 
-![Modelo de base](/modelo_de_dados/ER.jpg){ width="800" height="600" style="display: block; margin: 0 auto" }
+          ![Modelo de base](/modelo_de_dados/ER.jpg)
 
 Com o modelo mapeado as tabelas do PostgreSQL foram construidas
 
