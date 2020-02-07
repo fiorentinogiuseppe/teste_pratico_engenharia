@@ -10,7 +10,8 @@ pip install -r requirements.txt
 ```
 
 :warning: Todos os comandos que serão descritos, em sua maioria, é para ser executado 
-no terminal do GNU/LINUX :penguin: 
+no terminal do GNU/LINUX :penguin: . Além disso não é necessário esta na pasta home do projeto 
+para executar os códigos.
 
 ### Organização do repositório
 Este repositório esta organizado da seguinte maneira. ~~indico consultar caso se complique na organização, pois
@@ -101,7 +102,7 @@ Assim teremos os seguintes ambiente *em pé*:
 Após todo o ambiente configurado e entendido a organização do repositório podemos iniciar as
 questões
 
-![](/tmp/incio_da_caminhada.png)
+![](/tmp/incio_da_caminhada.png){ width="800" height="600" style="display: block; margin: 0 auto" }
 
 ### Questão 1
 * :question: <mark>Carregar uma das bases de dados listadas acima em um banco de dados MongoDB.</mark>
@@ -109,6 +110,11 @@ questões
     memoria. Após termos a nossa conexão e os dados carregados utilizei o método do mongo "insert_many" para inserir 
     todos os dados de uma única vez. Fechando a conexão ao terminar.
 
+Para executar o script execute o comando ~~em outro terminal já que o anterior esta rodando nossos
+dockers~~
+ ```
+python src/q_1.py
+```
 
 ### Questão 2
 * <mark>Responder as seguintes consultas</mark>:
@@ -126,20 +132,37 @@ questões
     * :question: Contagem de etiquetas mais comuns.
         * :grey_exclamation: Busquei todos as etiquetas utilizando o mongo e após isso usei o **COUNTER** do python
         para contar as ocorrencias unicas das etiquetas.
+
+Para executar o script execute o comando ~~em outro terminal já que o anterior esta rodando nossos
+dockers~~
+ ```
+python src/q_2.py
+```
+
 ### Questão 3
 Dado que o objetivo principal é ler os dados a partir do MongoDB, que é uma base NoSQL,
 transformá-los e carregar o resultado em uma tabela do PostgreSQL, que como própiro nome diz é uma base SQL. Porém 
 para isso precisamos destrinchar o documento tentando mapear para o modelo ER ~~quase uma engenharia reversa 
 de base de dados~~. Com isso em mente a tentativa do mapeamento gerou a imagem a seguir:
-![Modelo de base](/modelo_de_dados/ER.jpg)
 
+![Modelo de base](/modelo_de_dados/ER.jpg){ width="800" height="600" style="display: block; margin: 0 auto" }
 
 Com o modelo mapeado as tabelas do PostgreSQL foram construidas
 
 #### Questão 3-1
 * :question: Gerar 2 modelos (Processo e Andamento) usando SQLAlchemy. Inferir os campos através do esquema apresentado 
 acima. O candidato tem liberdade para criar novos campos para lhe ajudar nas tarefas.
-    * :grey_exclamation: 
+    * :grey_exclamation: Com o modelo em mãos foi só desenvolver as classes no [models.py](https://github.com/fiorentinogiuseppe/teste_pratico_engenharia/blob/master/src/intUtilx/models.py) 
+    representando cada classe uma tabela. Contendo informações de cada um dos campos, além da sua relação, one-to-may 
+    entre outras. Após criar as classes/modelos é só importar no 
+    [q_31.py](https://github.com/fiorentinogiuseppe/teste_pratico_engenharia/blob/master/src/q_31.py) 
+    para podermos materializar as tabelas na base utilizando o método **.create()**. 
+    
+Para executar o script execute o comando ~~em outro terminal já que o anterior esta rodando nossos dockers~~
+ ```
+python src/q_31.py
+```
+
 #### Questão 3-2
 *   Realizar as transformações abaixo:
     * :question: Deixar somente o primeiro e último nome dos Juízes.
@@ -156,6 +179,12 @@ acima. O candidato tem liberdade para criar novos campos para lhe ajudar nas tar
     * :question: Adicionar um campo booleano no modelo de Andamento que verifique se a palavra cinema esta no texto.
         * :grey_exclamation:
 
+Para executar o script execute o comando ~~em outro terminal já que o anterior esta rodando nossos
+dockers~~
+ ```
+python src/q_32.py
+```
+
 #### Questão 3-3
 * Responder as seguintes consultas pós-processamento:
     * :question: Qual o total de processos? Qual o total de andamentos?
@@ -171,11 +200,23 @@ acima. O candidato tem liberdade para criar novos campos para lhe ajudar nas tar
     * :question: Qual mês/ano foram capturados mais processos para cada "spider"?
         * :grey_exclamation: 
 
+Para executar o script execute o comando ~~em outro terminal já que o anterior esta rodando nossos
+dockers~~
+ ```
+python src/q_33.py
+```
+
 ### Questão 4
 * :question: Ao final exportar as tabelas do banco de dados PostgreSQL para um arquivo chamado report.csv (delimitador de texto 
 ' " ', separador ' | ').
     * :grey_exclamation: fiz um select everything nas tabelas e fui salvando linha por linha em um arquivo csv.
     Com delimitador '|' e aspas '"' (QUOTE_NONNUMERIC).
+
+Para executar o script execute o comando ~~em outro terminal já que o anterior esta rodando nossos
+dockers~~
+ ```
+python src/q_4.py
+```
 
 ## Tempo de execução de cada uma das questões
 ### Questão 1
