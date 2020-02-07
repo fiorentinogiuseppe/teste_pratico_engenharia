@@ -12,6 +12,49 @@ pip install -r requirements.txt
 :warning: Todos os comandos que serão descritos, em sua maioria, é para ser executado 
 no terminal do GNU/LINUX :penguin: 
 
+### Organização do repositório
+Este repositório esta organizado da seguinte maneira
+```
+.
+├── data_file - diretorio dos links de datasets para download
+│   └── datasets.txt - links de datasets para download
+├── datasets - diretorio dos datasets utilizados
+│   └── dataset-0.json - dataset utilizado
+├── doc - documentos utilizados
+│   └── Help.me - links utilizados para consulta
+├── dockers - ditetorio de dockers
+│   └── docker-compose.yml - docker-compose utilizado
+├── dumps - dumps/exports/exportação da base SQL
+│   ├── andamentos.csv
+│   ├── etiquetas.csv
+│   └── processos.csv
+├── modelo_de_dados - modelagem ER do banco SQL baseado no NoSQL
+│   └── ER.jpg
+├── notebooks - notebooks utilizados
+│   └── teste_01.ipynb
+├── OBJETIVOS.md - Os objetivos a serem feitos
+├── README.md - Documentação explicativa do projeto
+├── requirements.txt - Requerimentos python
+├── src - Source code diretório
+│   ├── __init__.py
+│   ├── intUtilx - diretório com os uteis a sere utilizados
+│   │   ├── download_datasets.py
+│   │   ├── models.py
+│   │   │    
+│   │   └── utils.py
+│   ├── q_1.py
+│   ├── q_2.py
+│   ├── q_31.py
+│   ├── q_32.py
+│   ├── q_33.py
+│   └── q_4.py
+├── tempos_de_execucao.txt - Arquivo contendo o tempo de execução de cada questão
+└── test - Diretorio de teste
+
+18 directories, 48 files
+
+```
+
 ## Data
 
 Os dados usados aqui foram herdados do
