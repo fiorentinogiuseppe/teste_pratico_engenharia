@@ -100,18 +100,27 @@ Assim teremos os seguintes ambiente *em pé*:
 ## Questões comentadas
 ### Questão 1
 * :question: <mark>Carregar uma das bases de dados listadas acima em um banco de dados MongoDB.</mark>
-    * :grey_exclamation: Para realizar o objetivo simplesmente criei a conexão com o mongo e carreguei o json em memoria. Após termos a
-nossa conexão e os dados carregados utilizei o método do mongo "insert_many" para inserir todos os dados de
-uma única vez. Fechando a conexão ao terminar.
+    * :grey_exclamation: Para realizar o objetivo simplesmente criei a conexão com o mongo e carreguei o json em 
+    memoria. Após termos a nossa conexão e os dados carregados utilizei o método do mongo "insert_many" para inserir 
+    todos os dados de uma única vez. Fechando a conexão ao terminar.
 
 
 ### Questão 2
 * <mark>Responder as seguintes consultas</mark>:
-    * Contagem total dos processos.
-    * Contagem total dos andamentos.
-    * Contagem de processos por estado.
-    * Contagem de juízes que começam com 'S'.
-    * Contagem de etiquetas mais comuns.
+    * :question: Contagem total dos processos.
+        * :grey_exclamation: Como os dados estavam no mongo utilizei as consultas do mongodb.
+        Para este problema apenas contei os documentos com a query **{}** como se fosse o **select everything** do SQL
+    * :question: Contagem total dos andamentos.
+        * :grey_exclamation: Neste não utilize uma consulta NoSQL. Localizei todos os dados e fiz um **loop** 
+        por cada andamento dentro do processo contando-o.
+    * :question: Contagem de processos por estado.
+        * :grey_exclamation: Voltei para as consultas NoSQL e fiz um **group by** por estado e um **count**
+        em tudo dentro do group e ordenei ascendentemente.
+    * :question: Contagem de juízes que começam com 'S'.
+        * :grey_exclamation: Fiz um count_documents utilizando o regex para nomes de juiz que começa com **S**
+    * :question: Contagem de etiquetas mais comuns.
+        * :grey_exclamation: Busquei todos as etiquetas utilizando o mongo e após isso usei o **COUNTER** do python
+        para contar as ocorrencias unicas das etiquetas.
 ### Questão 3
 
 ![Modelo de base](/modelo_de_dados/ER.jpg)
@@ -121,7 +130,10 @@ uma única vez. Fechando a conexão ao terminar.
 #### Questão 3-2
 #### Questão 3-3
 ### Questão 4
-* Ao final exportar as tabelas do banco de dados PostgreSQL para um arquivo chamado report.csv (delimitador de texto ' " ', separador ' | ').
+* :question: Ao final exportar as tabelas do banco de dados PostgreSQL para um arquivo chamado report.csv (delimitador de texto 
+' " ', separador ' | ').
+    * :grey_exclamation: fiz um select everything nas tabelas e fui salvando linha por linha em um arquivo csv.
+    Com delimitador '|' e aspas '"' (QUOTE_NONNUMERIC).
 
 ## Tempo de execução de cada uma das questões
 ### Questão 1
