@@ -1,8 +1,8 @@
-from sqlalchemy import create_engine
+from intUtilx.utils import create_engine_sql
 import csv
 
 
-engine = create_engine('postgresql+psycopg2://postgres:Testeintelivix2020!@localhost:15432/postgres')
+engine = create_engine_sql()
 
 result_set = engine.execute("select * from processos")
 

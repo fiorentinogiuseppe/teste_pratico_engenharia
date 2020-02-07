@@ -1,6 +1,6 @@
-from sqlalchemy import create_engine
+from intUtilx.utils import create_engine_sql
 
-engine = create_engine('postgresql+psycopg2://postgres:Testeintelivix2020!@localhost:15432/postgres')
+engine = create_engine_sql()
 
 print("Qual o total de processos? ")
 result_set = engine.execute("select count(*) from processos")
