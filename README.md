@@ -1,5 +1,5 @@
 # Teste pratico engenharia de dados - Intelivix
-Meu teste prático passo a passo reproduzível para o time de "Engenharia de Dados" da Intelivix. 
+Meu teste prático passo a passo reproduzível para o time de "Engenharia de Dados" d@ [Intelivix](https://intelivix.com/). 
 
 Para executar este teste é necessário possui o Docker e o docker-compondo. 
 Além disso é necessário instalar os requisitos. Assim indico criar um ambiente virtual 
@@ -16,7 +16,7 @@ no terminal do GNU/LINUX :penguin:
 
 Os dados usados aqui foram herdados do
 [teste pratico de engenharia de dados](https://github.com/intelivix/teste_pratico_engenharia) 
-d@ [Intelivix](https://intelivix.com/).
+d@ Intelivix.
 Os arquivos são jsons com dados referentes à processos e estão n diretório 
 [./datasets](https://github.com/fiorentinogiuseppe/teste_pratico_engenharia/tree/master/datasets). 
 
