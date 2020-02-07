@@ -2,7 +2,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Date, ForeignKey, Boolean, Table, ARRAY
 from sqlalchemy.orm import relationship
 
+
 Base = declarative_base()
+
 
 class Processos(Base):
     __tablename__ = 'processos'
