@@ -99,7 +99,19 @@ Assim teremos os seguintes ambiente *em pé*:
 
 ## Questões comentadas
 ### Questão 1
+* :question: <mark>Carregar uma das bases de dados listadas acima em um banco de dados MongoDB.</mark>
+    * :grey_exclamation: Para realizar o objetivo simplesmente criei a conexão com o mongo e carreguei o json em memoria. Após termos a
+nossa conexão e os dados carregados utilizei o método do mongo "insert_many" para inserir todos os dados de
+uma única vez. Fechando a conexão ao terminar.
+
+
 ### Questão 2
+* <mark>Responder as seguintes consultas</mark>:
+    * Contagem total dos processos.
+    * Contagem total dos andamentos.
+    * Contagem de processos por estado.
+    * Contagem de juízes que começam com 'S'.
+    * Contagem de etiquetas mais comuns.
 ### Questão 3
 
 ![Modelo de base](/modelo_de_dados/ER.jpg)
@@ -109,6 +121,7 @@ Assim teremos os seguintes ambiente *em pé*:
 #### Questão 3-2
 #### Questão 3-3
 ### Questão 4
+* Ao final exportar as tabelas do banco de dados PostgreSQL para um arquivo chamado report.csv (delimitador de texto ' " ', separador ' | ').
 
 ## Tempo de execução de cada uma das questões
 ### Questão 1
@@ -138,10 +151,14 @@ sys     0m17,256s
 ```
 #### Questão 3-3
 ```
-
+real    0m0,325s
+user    0m0,180s
+sys     0m0,030s
 ```
 ### Questão 4
 ```
-
+real    0m1,500s
+user    0m0,998s
+sys     0m0,083s
 ```
 
