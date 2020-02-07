@@ -13,7 +13,8 @@ pip install -r requirements.txt
 no terminal do GNU/LINUX :penguin: 
 
 ### Organização do repositório
-Este repositório esta organizado da seguinte maneira
+Este repositório esta organizado da seguinte maneira. ~~indico consultar caso se complique na organização, pois
+os diretorios e arquivos estao todos comentados~~: 
 ```
 .
 ├── data_file - diretorio dos links de datasets para download
@@ -96,11 +97,51 @@ Assim teremos os seguintes ambiente *em pé*:
     * username: fiorentinogiuseppebcc@gmail.com
     * password: Testeintelivix2020!
 
-## Questões
+## Questões comentadas
 ### Questão 1
 ### Questão 2
 ### Questão 3
+
+![Modelo de base](/modelo_de_dados/ER.jpg)
+
+
 #### Questão 3-1
 #### Questão 3-2
 #### Questão 3-3
 ### Questão 4
+
+## Tempo de execução de cada uma das questões
+### Questão 1
+```
+real    0m2,218s
+user    0m0,624s
+sys     0m0,156s
+```
+### Questão 2
+```
+real    0m0,609s
+user    0m0,283s
+sys     0m0,103s
+```
+### Questão 3
+#### Questão 3-1
+```
+real    0m1,232s
+user    0m0,331s
+sys     0m0,052s
+```
+#### Questão 3-2
+```
+real    36m10,017s
+user    2m33,443s
+sys     0m17,256s
+```
+#### Questão 3-3
+```
+
+```
+### Questão 4
+```
+
+```
+
