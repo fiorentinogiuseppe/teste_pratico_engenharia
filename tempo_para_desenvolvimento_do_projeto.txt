@@ -1,6 +1,7 @@
 Data    Horário     Tempo
 04/02   19:55-21:07 1h12
-05/02   15:30-22h30 7h00
-06/02   16:30-22h30 6h00
+05/02   15:30-19h30 4h00
+06/02   15:30-22h30 7h00
+07/02   16:30-22h30 6h00
 
-Tempo total despendido: 14h12
+Tempo total despendido: 18h12
