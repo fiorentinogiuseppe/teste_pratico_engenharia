@@ -4,3 +4,26 @@ real    0m2,218s
 user    0m0,624s
 sys     0m0,156s
 
+----------
+q_2.py
+
+real    0m0,609s
+user    0m0,283s
+sys     0m0,103s
+
+----------
+q_31.py
+
+real    0m1,232s
+user    0m0,331s
+sys     0m0,052s
+
+----------
+
+q_32.py
+
+real    36m10,017s
+user    2m33,443s
+sys     0m17,256s
+
+----------
