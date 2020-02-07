@@ -31,3 +31,20 @@ print('Qual processo possui o maior número formado pelos seus 6 primeiros núme
 result_set = engine.execute("select  id, LEFT(npu, 6) from processos order by LEFT(npu, 6) desc limit 1")
 for r in result_set:
     print("R: ", r[0])
+
+print('Qual mês/ano foram capturados mais processos para cada "spider"?')
+result_set = engine.execute("""
+    select distinct on (dm.spider) dm.spider, dm.my, dm.count from(
+	    select to_char(data_captura, 'YYYY-MM') as my, count(to_char(data_captura, 'YYYY-MM')), spider from processos group by spider, my order by spider, count desc
+    ) dm
+    join(
+	    select spider, max(count) from(
+		    select to_char(data_captura, 'YYYY-MM') as my, count(to_char(data_captura, 'YYYY-MM')), spider from processos group by spider, my order by spider, count desc
+	    ) as y
+	    group by spider
+    ) sm
+    on sm.max = dm.count and dm.spider = sm.spider
+""")
+
+for r in result_set:
+    print("R: spider {} - mes/ano {} - quantidade {} ".format(r[0],r[1],r[2]))

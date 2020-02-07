@@ -65,7 +65,9 @@ def get_andamentos(item, data_de_distribuicao):
         if delta.total_seconds() < 0:
             i.pop('etiquetas', None)
             # start with space+r+word
-            i['texto'] = re.sub("(\s)r\w+", "", i['texto'])
+            # so por garantia removi "r "
+            i['texto'] = re.sub(r'\b[rR]\w+', "", i['texto']).replace("r ","")
+
             if i['texto'].find('cinema') != -1:
                 i['bool_cinema'] = True
             else:
