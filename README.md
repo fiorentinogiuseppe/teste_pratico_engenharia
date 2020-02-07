@@ -98,7 +98,7 @@ Assim teremos os seguintes ambiente *em pé*:
     * password: Testeintelivix2020!
 
 ## Questões comentadas
-Após tudo o ambiente configurado e entendido a organização do repositório podemos iniciar as
+Após todo o ambiente configurado e entendido a organização do repositório podemos iniciar as
 questões
 
 ![](/tmp/incio_da_caminhada.png)
@@ -127,13 +127,50 @@ questões
         * :grey_exclamation: Busquei todos as etiquetas utilizando o mongo e após isso usei o **COUNTER** do python
         para contar as ocorrencias unicas das etiquetas.
 ### Questão 3
-
+Dado que o objetivo principal é ler os dados a partir do MongoDB, que é uma base NoSQL,
+transformá-los e carregar o resultado em uma tabela do PostgreSQL, que como própiro nome diz é uma base SQL. Porém 
+para isso precisamos destrinchar o documento tentando mapear para o modelo ER ~~quase uma engenharia reversa 
+de base de dados~~. Com isso em mente a tentativa do mapeamento gerou a imagem a seguir:
 ![Modelo de base](/modelo_de_dados/ER.jpg)
 
 
+Com o modelo mapeado as tabelas do PostgreSQL foram construidas
+
 #### Questão 3-1
+* :question: Gerar 2 modelos (Processo e Andamento) usando SQLAlchemy. Inferir os campos através do esquema apresentado 
+acima. O candidato tem liberdade para criar novos campos para lhe ajudar nas tarefas.
+    * :grey_exclamation: 
 #### Questão 3-2
+*   Realizar as transformações abaixo:
+    * :question: Deixar somente o primeiro e último nome dos Juízes.
+        * :grey_exclamation: 
+    * :question: Remover todos os andamentos cuja data for anterior a data de distribuição.
+        * :grey_exclamation:
+    * :question: Modificar os npus que não possuam um ano entre 1980 e 2018 para o ano 2000.
+        * :grey_exclamation:
+    * :question: Remover todas as palavras que comecem com a letra 'r' dos textos dos andamentos.
+        * :grey_exclamation:
+    * :question: Adicionar um campo inteiro no modelo de Processo com a quantidade de andamentos 
+    (somente os válidos que já foram transformados).
+        * :grey_exclamation:
+    * :question: Adicionar um campo booleano no modelo de Andamento que verifique se a palavra cinema esta no texto.
+        * :grey_exclamation:
+
 #### Questão 3-3
+* Responder as seguintes consultas pós-processamento:
+    * :question: Qual o total de processos? Qual o total de andamentos?
+        * :grey_exclamation: 
+    * :question: Qual processo possui mais andamentos?
+        * :grey_exclamation: 
+    * :question: Quais andamentos possuem mais caracteres? Quais são os seus processos?
+        * :grey_exclamation: 
+    * :question: Qual andamento mais antigo com o termo "cinema"?
+        * :grey_exclamation: 
+    * :question: Qual processo possui o maior número formado pelos seus 6 primeiros números do seu npu?
+        * :grey_exclamation: 
+    * :question: Qual mês/ano foram capturados mais processos para cada "spider"?
+        * :grey_exclamation: 
+
 ### Questão 4
 * :question: Ao final exportar as tabelas do banco de dados PostgreSQL para um arquivo chamado report.csv (delimitador de texto 
 ' " ', separador ' | ').
