@@ -145,7 +145,7 @@ transform√°-los e carregar o resultado em uma tabela do PostgreSQL, que como pr√
 para isso precisamos destrinchar o documento tentando mapear para o modelo ER ~~quase uma engenharia reversa 
 de base de dados~~. Com isso em mente a tentativa do mapeamento gerou a imagem a seguir:
 
-          ![Modelo de base](/modelo_de_dados/ER.jpg)
+   ![Modelo de base](/modelo_de_dados/ER.jpg)
 
 Com o modelo mapeado as tabelas do PostgreSQL foram construidas
 
