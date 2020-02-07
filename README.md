@@ -101,7 +101,7 @@ Assim teremos os seguintes ambiente *em pé*:
 Após tudo o ambiente configurado e entendido a organização do repositório podemos iniciar as
 questões
 
-![](/tmp/incio_da_caminhada.png=250x)
+![](/tmp/incio_da_caminhada.png)
 
 ### Questão 1
 * :question: <mark>Carregar uma das bases de dados listadas acima em um banco de dados MongoDB.</mark>
@@ -128,7 +128,7 @@ questões
         para contar as ocorrencias unicas das etiquetas.
 ### Questão 3
 
-![Modelo de base](/modelo_de_dados/ER.jpg=250x)
+![Modelo de base](/modelo_de_dados/ER.jpg)
 
 
 #### Questão 3-1
