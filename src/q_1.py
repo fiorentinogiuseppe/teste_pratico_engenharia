@@ -1,4 +1,4 @@
-from intUtilx.utils import create_connection, load_json, close_client
+from intUtilx.utils import close_client, create_connection, load_json
 
 # Creat connection with default parameters
 my_collection, client = create_connection()

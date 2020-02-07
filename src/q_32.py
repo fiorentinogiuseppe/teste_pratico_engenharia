@@ -1,8 +1,9 @@
-from sqlalchemy import MetaData, Table
-from copy import deepcopy
 import re
+from copy import deepcopy
 from datetime import datetime
-from intUtilx.utils import create_connection, create_engine_sql, close_client
+
+from intUtilx.utils import close_client, create_connection, create_engine_sql
+from sqlalchemy import MetaData, Table
 
 
 # -------------------- Insert Functions --------------------
@@ -237,4 +238,3 @@ for item in my_collection.find():
         insert_db_andamentos(andamentos, id_processo, ids_etiquetas)
 
 close_client(client)
-

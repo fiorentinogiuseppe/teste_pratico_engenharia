@@ -1,4 +1,4 @@
-from intUtilx.models import Etiquetas, Processos, Andamentos
+from intUtilx.models import Andamentos, Etiquetas, Processos
 from intUtilx.utils import create_engine_sql
 
 # Create sql connection with default settings
