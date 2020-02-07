@@ -50,9 +50,6 @@ Este repositório esta organizado da seguinte maneira
 │   └── q_4.py
 ├── tempos_de_execucao.txt - Arquivo contendo o tempo de execução de cada questão
 └── test - Diretorio de teste
-
-18 directories, 48 files
-
 ```
 
 ## Data

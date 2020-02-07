@@ -1,5 +1,4 @@
 from sqlalchemy import MetaData, Table
-from pymongo import MongoClient
 from copy import deepcopy
 import re
 from datetime import datetime
@@ -8,6 +7,20 @@ from intUtilx.utils import create_connection, create_engine_sql, close_client
 
 # -------------------- Insert Functions --------------------
 def insert_db_etiquetas(items):
+    """
+    Insert `list` of uniques `etiquetas` in pgSQL
+    Parameters
+    ----------
+    items: list
+        Itens to be inserted in the database
+
+
+    Returns
+    -------
+    list
+        List with each id of each inserted `etiqueta`
+
+    """
     rslt_id = []
     metadata = MetaData()
     metadata.reflect(engine, only=['etiquetas'])
@@ -19,6 +32,20 @@ def insert_db_etiquetas(items):
 
 
 def insert_db_processos(item):
+    """
+    Insert `dict` of `processos` in pgSQL
+    Parameters
+    ----------
+    item: dict
+        Dictionary containing the `processos`
+
+
+    Returns
+    -------
+    str:
+        String with id of inserted `processo`
+
+    """
     metadata = MetaData()
     metadata.reflect(engine, only=['processos'])
     table = Table('processos', metadata, autoload=True, autoload_with=engine)
@@ -28,6 +55,22 @@ def insert_db_processos(item):
 
 
 def insert_db_andamentos(itens, id_processo, ids_etiquetas):
+    """
+    Insert `list` of `andamenos` in pgSQL
+    Parameters
+    ----------
+    itens: list
+        List of `andamentos` containing each of `andamento`
+    id_processo: str
+        String id of the `processo` that belong it .
+
+    ids_etiquetas: list
+        List id of the `etiqueta` that it belong.
+
+    Returns
+    -------
+    None
+    """
     metadata = MetaData()
     metadata.reflect(engine, only=['andamentos'])
     table = Table('andamentos', metadata, autoload=True, autoload_with=engine)
@@ -42,13 +85,16 @@ def insert_db_andamentos(itens, id_processo, ids_etiquetas):
 # -------------------- Mining Functions --------------------
 def edit_juiz(juiz):
     """
-
+    Split juiz name and get first and last name
     Parameters
     ----------
-    juiz
+    juiz: str
+        String containing `juiz` name
 
     Returns
     -------
+    str
+        New name formatted by `FIRST_NAME+LAST_NAME`
 
     """
     part_name = juiz.split(" ")
@@ -57,13 +103,16 @@ def edit_juiz(juiz):
 
 def edit_npu(npu):
     """
-
+    Get npu and if it its more than 2018 or less than 1980 change your date value to `2000`
     Parameters
     ----------
-    npu
+    npu: str
+        String containing `npu` and we want chang your date parte
 
     Returns
     -------
+    str
+        New npu
 
     """
     str = npu.split('.')
@@ -73,26 +122,46 @@ def edit_npu(npu):
     return '.'.join(str)
 
 
-def miningData(item):
-    processos = get_processos(item)
+def mining_data(item):
+    """
+    Mining the json spliting in `andamento`, `processo` and `etiqueta` make the needed changes
 
-    andamentos = get_andamentos(item, item['data_distribuicao'])
-    processos['quantidade_andamentos'] = len(andamentos)
+    Parameters
+    ----------
+    item: json
+        Json containing the main `processo` to be splited
+
+    Returns
+    -------
+    json
+        `Processos`json
+    list
+        List of `andamentos`
+    list
+        List of `etiquetas` if `andamentos` exist. Otherwise return None
+    """
+
+    proc = get_processos(item)
+    andam= get_andamentos(item, item['data_distribuicao'])
+    proc['quantidade_andamentos'] = len(andamentos)
     if len(andamentos):
-        return processos, andamentos, get_etiquetas(item)
-    return processos, andamentos, None
+        return proc, andam, get_etiquetas(item)
+    return proc, andam, None
 
 
 # -------------------- Get Functions --------------------
 def get_processos(item):
     """
-
+    Extract only the `processo` from others parts and alter `juiz` name and `npu` date
     Parameters
     ----------
-    item
+    item: json
+        Json containing the main `processo`
 
     Returns
     -------
+    json
+        `Processo` json
 
     """
     item = deepcopy(item)
@@ -104,16 +173,21 @@ def get_processos(item):
 
 def get_andamentos(item, data_de_distribuicao):
     """
-
+    Extract only the `andamentos` from others parts and check if these date is less than `data_de_distribuicao`
     Parameters
     ----------
-    item
-    data_de_distribuicao
+    item: json
+        Json containing the main `processo`
+    data_de_distribuicao: str
+        String representing the `data_de_distrobuicao` of the `processo`
 
     Returns
     -------
+    list
+        List of `andamentos`
 
     """
+
     item = deepcopy(item)
     return_data = []
     for i in item['andamentos']:
@@ -134,14 +208,16 @@ def get_andamentos(item, data_de_distribuicao):
 
 def get_etiquetas(item):
     """
-
+    Extract only the `etiquetas` from others parts
     Parameters
     ----------
-    item
+    itemjson
+        Json containing the main `andamento`
 
     Returns
     -------
-
+    list
+        List of `etiquetas`
     """
     etiquetas = []
     for i in item['andamentos']:
@@ -154,7 +230,7 @@ my_collection, client = create_connection()
 
 id_andamentos = None
 for item in my_collection.find():
-    processos, andamentos, etiquetas= miningData(item)
+    processos, andamentos, etiquetas= mining_data(item)
     id_processo = insert_db_processos(processos)
     if etiquetas is not None and len(andamentos) > 0:
         ids_etiquetas = insert_db_etiquetas(etiquetas)
