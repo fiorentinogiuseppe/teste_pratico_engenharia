@@ -1,16 +1,7 @@
 from collections import Counter
-from pymongo import MongoClient
+from intUtilx.utils import create_connection
 
-client = MongoClient('localhost',
-                     port=27017,
-                     username='root',
-                     password='Testeintelivix2020!',
-                     authSource='admin')
-
-db = client['intelivix']
-
-my_collection = db['my_collection']
-
+my_collection, client = create_connection()
 
 total_andamentos = 0
 for item in my_collection.find():

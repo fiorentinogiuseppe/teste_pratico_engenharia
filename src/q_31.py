@@ -1,6 +1,8 @@
-from sqlalchemy import create_engine
-from models import Etiquetas, Processos, Andamentos
-engine = create_engine('postgresql+psycopg2://postgres:Testeintelivix2020!@localhost:15432/postgres')
+from intUtilx.models import Etiquetas, Processos, Andamentos
+from intUtilx.utils import create_engine_sql
+
+# Create sql connection with default settings
+engine = create_engine_sql()
 
 # Gerar 2 modelos
 print("Gerando modelos...")

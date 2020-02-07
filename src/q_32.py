@@ -1,10 +1,12 @@
-from sqlalchemy import create_engine, MetaData, Table
+from sqlalchemy import MetaData, Table
 from pymongo import MongoClient
 from copy import deepcopy
 import re
 from datetime import datetime
+from intUtilx.utils import create_connection, create_engine_sql, close_client
 
 
+# -------------------- Insert Functions --------------------
 def insert_db_etiquetas(items):
     rslt_id = []
     metadata = MetaData()
@@ -36,12 +38,34 @@ def insert_db_andamentos(itens, id_processo, ids_etiquetas):
         engine.execute(table.insert(), item)
         id_cont_etiquetas += 1
 
+
+# -------------------- Mining Functions --------------------
 def edit_juiz(juiz):
+    """
+
+    Parameters
+    ----------
+    juiz
+
+    Returns
+    -------
+
+    """
     part_name = juiz.split(" ")
     return ' '.join([part_name[0], part_name[-1]])
 
 
 def edit_npu(npu):
+    """
+
+    Parameters
+    ----------
+    npu
+
+    Returns
+    -------
+
+    """
     str = npu.split('.')
     data = int(str[1])
     if data < 1980 or data > 2018:
@@ -49,7 +73,28 @@ def edit_npu(npu):
     return '.'.join(str)
 
 
+def miningData(item):
+    processos = get_processos(item)
+
+    andamentos = get_andamentos(item, item['data_distribuicao'])
+    processos['quantidade_andamentos'] = len(andamentos)
+    if len(andamentos):
+        return processos, andamentos, get_etiquetas(item)
+    return processos, andamentos, None
+
+
+# -------------------- Get Functions --------------------
 def get_processos(item):
+    """
+
+    Parameters
+    ----------
+    item
+
+    Returns
+    -------
+
+    """
     item = deepcopy(item)
     item.pop('andamentos', None)
     item['juiz'] = edit_juiz(item['juiz'])
@@ -58,6 +103,17 @@ def get_processos(item):
 
 
 def get_andamentos(item, data_de_distribuicao):
+    """
+
+    Parameters
+    ----------
+    item
+    data_de_distribuicao
+
+    Returns
+    -------
+
+    """
     item = deepcopy(item)
     return_data = []
     for i in item['andamentos']:
@@ -77,32 +133,24 @@ def get_andamentos(item, data_de_distribuicao):
 
 
 def get_etiquetas(item):
+    """
+
+    Parameters
+    ----------
+    item
+
+    Returns
+    -------
+
+    """
     etiquetas = []
     for i in item['andamentos']:
         etiquetas.append(i['etiquetas'])
     return etiquetas
 
 
-def miningData(item):
-    processos = get_processos(item)
-
-    andamentos = get_andamentos(item, item['data_distribuicao'])
-    processos['quantidade_andamentos'] = len(andamentos)
-    if len(andamentos):
-        return processos, andamentos, get_etiquetas(item)
-    return processos, andamentos, None
-
-
-engine = create_engine('postgresql+psycopg2://postgres:Testeintelivix2020!@localhost:15432/postgres')
-client = MongoClient('localhost',
-                     port=27017,
-                     username='root',
-                     password='Testeintelivix2020!',
-                     authSource='admin')
-
-db = client['intelivix']
-
-my_collection = db['my_collection']
+engine = create_engine_sql()
+my_collection, client = create_connection()
 
 id_andamentos = None
 for item in my_collection.find():
@@ -111,4 +159,6 @@ for item in my_collection.find():
     if etiquetas is not None and len(andamentos) > 0:
         ids_etiquetas = insert_db_etiquetas(etiquetas)
         insert_db_andamentos(andamentos, id_processo, ids_etiquetas)
+
+close_client(client)
 

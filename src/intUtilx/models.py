@@ -2,11 +2,14 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Date, ForeignKey, Boolean, Table, ARRAY
 from sqlalchemy.orm import relationship
 
-
+# Global variable to constructs a base class
 Base = declarative_base()
 
 
 class Processos(Base):
+    """
+        `Processos` table
+    """
     __tablename__ = 'processos'
     id = Column(String, primary_key=True, autoincrement=False)
     npu = Column(String)
@@ -19,6 +22,9 @@ class Processos(Base):
 
 
 class Andamentos(Base):
+    """
+        `Andamentos` table
+    """
     __tablename__ = 'andamentos'
     id = Column(Integer, primary_key=True)
     texto = Column(String)
@@ -29,6 +35,9 @@ class Andamentos(Base):
 
 
 class Etiquetas(Base):
+    """
+        `Etiquetas` table
+    """
     __tablename__ = 'etiquetas'
     id = Column(Integer, primary_key=True)
     cor = Column(ARRAY(String))
