@@ -98,6 +98,11 @@ Assim teremos os seguintes ambiente *em pé*:
     * password: Testeintelivix2020!
 
 ## Questões comentadas
+Após tudo o ambiente configurado e entendido a organização do repositório podemos iniciar as
+questões
+
+![](/tmp/incio_da_caminhada.png=250x)
+
 ### Questão 1
 * :question: <mark>Carregar uma das bases de dados listadas acima em um banco de dados MongoDB.</mark>
     * :grey_exclamation: Para realizar o objetivo simplesmente criei a conexão com o mongo e carreguei o json em 
@@ -123,7 +128,7 @@ Assim teremos os seguintes ambiente *em pé*:
         para contar as ocorrencias unicas das etiquetas.
 ### Questão 3
 
-![Modelo de base](/modelo_de_dados/ER.jpg)
+![Modelo de base](/modelo_de_dados/ER.jpg=250x)
 
 
 #### Questão 3-1
