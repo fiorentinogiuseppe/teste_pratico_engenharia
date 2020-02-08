@@ -42,7 +42,6 @@ os diretórios e arquivos estão todos comentados~~:
 │   ├── intUtilx - diretório com os uteis a sere utilizados
 │   │   ├── download_datasets.py
 │   │   ├── models.py
-│   │   │    
 │   │   └── utils.py
 │   ├── q_1.py
 │   ├── q_2.py
