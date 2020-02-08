@@ -286,7 +286,7 @@ user    0m0,998s
 sys     0m0,083s
 ```
 ## Considerações Finais
-Caso exista algum erro ou equivoco da minha parte, por favor, entrar em contato comigo pelo meu e-mail
+Caso exista algum erro ou equívoco da minha parte, por favor, entrar em contato comigo pelo meu e-mail
 ```
 fiorentinogiuseppebcc@gmail.com 
 ```
