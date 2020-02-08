@@ -66,6 +66,11 @@ Os arquivos são jsons com dados referentes à processos e estão n diretório
 possível realizar o download dos outros datasets por problemas referentes à perda de conexão
 com o *peer*.
 
+Caso não tenha os dados ou deseje dados diferentes deve-se executar o script para obter todos os dados:
+```
+python src/download_datasets.py
+```
+Assim terá os dados baixados no diretorio datasets.
 
 ### *"Bring up"* o ambiente
 Pensando na replicabilidade do teste foi utilizado o docker-compose como forma de conteinerização
@@ -164,20 +169,31 @@ python src/q_31.py
 ```
 
 #### Questão 3-2
+Antes de seguir com os que foi pedido foi preciso ler toda a base MongDB e ir desmonstando os dados
+separando processos de andamentos de etiquetas. E com isso realizando o que será pedido a seguir e 
+ir inserindo na base de dados. ~~acredito que exista um método mais rapido para inserir tudo 
+ou talvez o multithreading do python possa ajudar a ir inserindo e assim diminua o tempo~~
 *   Realizar as transformações abaixo:
     * :question: Deixar somente o primeiro e último nome dos Juízes.
-        * :grey_exclamation: 
+        * :grey_exclamation: Para isso é só pegar o campo do processo distinado ao nome do juiz,
+        split na string e pegar o primeiro o e ultimo nome.
     * :question: Remover todos os andamentos cuja data for anterior a data de distribuição.
-        * :grey_exclamation:
+        * :grey_exclamation: Para isso é só pegar o campo do processo distinado a data de distribuicao
+        junto com o campo de cada andamento e subtrair data destribuicao da data do andamento e caso seja
+        negativo inserir.
     * :question: Modificar os npus que não possuam um ano entre 1980 e 2018 para o ano 2000.
         * :grey_exclamation:
     * :question: Remover todas as palavras que comecem com a letra 'r' dos textos dos andamentos.
-        * :grey_exclamation:
+        * :grey_exclamation: No mesmo processo para obter os andamentos reliza um regex removendo
+        'R[a-zA-Z0-9]', porém percebi que existia 'r ' então por via das duvidas removi também.
     * :question: Adicionar um campo inteiro no modelo de Processo com a quantidade de andamentos 
     (somente os válidos que já foram transformados).
-        * :grey_exclamation:
+        * :grey_exclamation: Para cada processo é um simples len(andamentos) que nos retornará este
+        tipo de dado.
     * :question: Adicionar um campo booleano no modelo de Andamento que verifique se a palavra cinema esta no texto.
-        * :grey_exclamation:
+        * :grey_exclamation: Para cada texto do andamentos verificar, com o find, se existe a palavra.
+        Caso o resultado do find() não for -1 então ciname existe e é só adicionar esse novo campo True, caso
+        contrario False.
 
 Para executar o script execute o comando ~~em outro terminal já que o anterior esta rodando nossos
 dockers~~
@@ -186,19 +202,32 @@ python src/q_32.py
 ```
 
 #### Questão 3-3
+Com a base toda carregada no PostgreSQL as questões foram desenvolvida utilizando query SQL.
 * Responder as seguintes consultas pós-processamento:
     * :question: Qual o total de processos? Qual o total de andamentos?
-        * :grey_exclamation: 
+        * :grey_exclamation:  Um select count tudo nos dá o resultado desejado. Porém, assim como nos outros,
+        no retorna um objeto nos novemos por ele utilizando um loop para printar nosso resultado.
     * :question: Qual processo possui mais andamentos?
-        * :grey_exclamation: 
+        * :grey_exclamation: Inner join nos processos e andamentos com isso temos nossos processos com cada
+        um dos nossos andamentos. Realizando um *group by* por id do processos e um count deste, ordenando
+        em ordem decrescente a contagem e limitando por 1 a resposta da query temos nosso processo com mais
+        andamento.
     * :question: Quais andamentos possuem mais caracteres? Quais são os seus processos?
-        * :grey_exclamation: 
+        * :grey_exclamation: Select por id do andamento, processos_id e contagem de character de cada um 
+        dos textos da tabela e ordenando pelo numero de character decrescente e finalmente limitando por 1
+        temos nosso resultado.
     * :question: Qual andamento mais antigo com o termo "cinema"?
-        * :grey_exclamation: 
+        * :grey_exclamation: busca a data do andamento que tem bool_cinema como true, ordena as datas 
+        ascendente e limita por 1 temos a query.
     * :question: Qual processo possui o maior número formado pelos seus 6 primeiros números do seu npu?
-        * :grey_exclamation: 
+        * :grey_exclamation: Seleciona o id e os 6 primeiros caracteres, ordenando-os de forma dcrescente e limitado
+        por 1 nos retorna a query.
     * :question: Qual mês/ano foram capturados mais processos para cada "spider"?
-        * :grey_exclamation: 
+        * :grey_exclamation: Na questão mais compicada ~~na minha opniao~~tive que realizar um join a partir do resultado
+        de dois selects. O primeiro select foi para obter nosso grupo de spider e numero de  month/year de forma decrescente.
+        No segundo select realizamos o memso select contudo este está dentro de outro que irá obter o spider e o maximo
+        contado das datas. Esse join por spider e maxíma contagem nos da o resultado. Porém utilizando o distinct 
+        obtemos apenas o primeiro resultado, pois muitas vezes existia  mais de um mês/ano em que tinha valores repatido
 
 Para executar o script execute o comando ~~em outro terminal já que o anterior esta rodando nossos
 dockers~~
@@ -255,5 +284,10 @@ sys     0m0,030s
 real    0m1,500s
 user    0m0,998s
 sys     0m0,083s
+```
+## Considerações Finais
+Caso exista algum erro ou equivoco da minha parte, por favor, entrar em contato comigo pelo meu e-mail :
+```
+fiorentinogiuseppebcc@gmail.com 
 ```
 
